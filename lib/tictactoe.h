@@ -24,8 +24,6 @@ void displayGrid();
 void selectPlayerSymbol();
 void playerTurn();
 void selectPlayerPosition();
-void mapPlayerInput(char (*input)[3]);
-
 
 // Computer functions
 void computerTurn();
