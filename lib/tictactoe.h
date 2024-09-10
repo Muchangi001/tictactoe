@@ -14,7 +14,7 @@ extern char playerSymbol;
 extern char computerSymbol;
 extern char playerInput[2];
 extern unsigned char position[2];
-extern char gameWinner[9];
+extern char *gameWinner;
 extern bool isGameOver;
 
 void displayTempGrid();

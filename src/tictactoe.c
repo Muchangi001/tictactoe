@@ -11,7 +11,7 @@ char playerSymbol = '\0';
 char computerSymbol = '\0';
 char playerInput[2] = "";
 unsigned char position[2] = {0, 0};
-char gameWinner[9] = "";
+char *gameWinner = "";
 bool isGameOver = false;
 
 void displayTempGrid() {
@@ -131,7 +131,7 @@ void checkWinner() {
     for (int i = 0; i < 3; ++i) {
         if (gameGrid[i][0] != ' ' && gameGrid[i][0] == gameGrid[i][1] && gameGrid[i][1] == gameGrid[i][2]) {
             isGameOver = true;
-            if (gameGrid[i][0] == computerSymbol) strcpy(gameWinner, "Computer"); else strcpy(gameWinner, "Player");
+            gameWinner = (gameGrid[i][0] == computerSymbol) ? "Computer" :  "Player";
             return;
         }
     }
@@ -140,7 +140,7 @@ void checkWinner() {
     for (int i = 0; i < 3; ++i) {
         if (gameGrid[0][i] != ' ' && gameGrid[0][i] == gameGrid[1][i] && gameGrid[1][i] == gameGrid[2][i]) {
             isGameOver = true;
-            if (gameGrid[0][i] == computerSymbol) strcpy(gameWinner, "Computer"); else strcpy(gameWinner, "Player");
+            gameWinner = (gameGrid[0][i] == computerSymbol) ? "Computer" :  "Player";
             return;
         }
     }
@@ -148,13 +148,13 @@ void checkWinner() {
     // Diagonals
     if (gameGrid[0][0] != ' ' && gameGrid[0][0] == gameGrid[1][1] && gameGrid[1][1] == gameGrid[2][2]) {
         isGameOver = true;
-        if (gameGrid[0][0] == computerSymbol) strcpy(gameWinner, "Computer"); else strcpy(gameWinner, "Player");
+        gameWinner = (gameGrid[0][0] == computerSymbol) ? "Computer" :  "Player";
         return;
     }
 
     if (gameGrid[0][2] != ' ' && gameGrid[0][2] == gameGrid[1][1] && gameGrid[1][1] == gameGrid[2][0]) {
         isGameOver = true;
-        if (gameGrid[0][2] == computerSymbol) strcpy(gameWinner, "Computer"); else strcpy(gameWinner, "Player");
+        gameWinner = (gameGrid[0][2] == computerSymbol) ? "Computer" :  "Player";
         return;
     }
 
